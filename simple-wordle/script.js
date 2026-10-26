@@ -71,11 +71,32 @@ function checkGuess() {
         return;
     }
 
-    const row = board.children[attempts];
+   const row = board.children[attempts];
+const remainingLetters = answer.split("");
+const colours = ["absent", "absent", "absent", "absent", "absent"];
 
-    for (let i = 0; i < 5; i++) {
-        row.children[i].textContent = guess[i];
+for (let i = 0; i < 5; i++) {
+    if (guess[i] === answer[i]) {
+        colours[i] = "correct";
+        remainingLetters[i] = "";
     }
+}
+
+for (let i = 0; i < 5; i++) {
+    if (colours[i] !== "correct") {
+        const position = remainingLetters.indexOf(guess[i]);
+
+        if (position !== -1) {
+            colours[i] = "present";
+            remainingLetters[position] = "";
+        }
+    }
+}
+
+for (let i = 0; i < 5; i++) {
+    row.children[i].textContent = guess[i];
+    row.children[i].classList.add(colours[i]);
+}
 
     attempts++;
     attemptsText.textContent = attempts;
