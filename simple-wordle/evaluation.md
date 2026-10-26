@@ -32,3 +32,18 @@ During the development of my Wordle game, I had to make decisions about the desi
 I decided to use three separate files: index.html, style.css and script.js. This made it easier to understand what each part of the project was responsible for. HTML created the structure of the game, CSS controlled its appearance, and JavaScript handled the game logic and interactions.
 
 I also used GitHub to manage the project files and record changes through commits. This was useful because it provided a history of the development work and allowed me to keep track of changes to the code.
+What I Learned
+
+This experience helped me understand the importance of organising files correctly and checking that HTML can access external CSS and JavaScript files.
+
+It also showed me why testing is important. Even when the code appears correct, problems can still occur because of how the project files are stored or opened.
+
+Another lesson was the importance of understanding the JavaScript functions rather than only checking whether the game appears to work. For example, the guessing system must correctly update the number of attempts, apply letter colours and determine when the game should end.
+
+What I Would Do Differently
+
+If I completed a similar project again, I would test each part of the application more carefully as it was being developed.
+
+I would also create a clearer development plan at the beginning, identifying which features needed to be completed first.
+
+I think this would make the project easier to manage and reduce the time spent finding problems later.
