@@ -52,3 +52,42 @@ function startGame() {
 }
 
 startButton.addEventListener("click", startGame);
+function endGame() {
+    gameOver = true;
+    guessInput.disabled = true;
+    guessButton.disabled = true;
+}
+
+function checkGuess() {
+    if (gameOver) {
+        return;
+    }
+
+    const guess = guessInput.value.trim().toUpperCase();
+
+    if (!/^[A-Z]{5}$/.test(guess)) {
+        message.textContent = "Please enter exactly 5 letters.";
+        return;
+    }
+
+    const row = board.children[attempts];
+
+    for (let i = 0; i < 5; i++) {
+        row.children[i].textContent = guess[i];
+    }
+
+    attempts++;
+    attemptsText.textContent = attempts;
+    guessInput.value = "";
+
+    if (guess === answer) {
+        message.textContent = "Well done! You won in " + attempts + " guesses.";
+        endGame();
+    } else if (attempts === 6) {
+        message.textContent = "Game over! The word was " + answer + ".";
+        endGame();
+    } else {
+        message.textContent = "Try another word.";
+        guessInput.focus();
+    }
+}
