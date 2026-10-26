@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Wordle Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <main>
         <h1>Wordle Game</h1>
         <p>Guess the 5-letter word. You have 6 tries.</p>
+
         <p>Time: <span id="timer">0</span> seconds</p>
-<p>Guesses: <span id="attempts">0</span> / 6</p>
+        <p>Guesses: <span id="attempts">0</span> / 6</p>
 
-<div id="board" aria-label="Your guesses"></div>
+        <div id="board" aria-label="Your guesses"></div>
+
         <div class="controls">
-    <label for="guessInput">Your guess:</label>
-    <input type="text" id="guessInput" maxlength="5" autocomplete="off" disabled>
-    <button id="guessButton" disabled>Guess</button>
-</div>
+            <label for="guessInput">Your guess:</label>
+            <input type="text" id="guessInput" maxlength="5" autocomplete="off" disabled>
+            <button id="guessButton" disabled>Guess</button>
+        </div>
 
-<p id="message">Click Start Game to play.</p>
+        <p id="message" aria-live="polite">Click Start Game to play.</p>
+        <button id="startButton">Start Game</button>
 
-<button id="startButton">Start Game</button>
         <p class="help">
-    <span class="example correct">Green</span> = right position<br>
-    <span class="example present">Yellow</span> = wrong position<br>
-    <span class="example absent">Grey</span> = not in the word
-</p>
+            <span class="example correct">Green</span> = right position<br>
+            <span class="example present">Yellow</span> = wrong position<br>
+            <span class="example absent">Grey</span> = not in the word
+        </p>
     </main>
-
+    <script src="script.js"></script>
 </body>
 </html>
