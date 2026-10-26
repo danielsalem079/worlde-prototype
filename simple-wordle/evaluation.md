@@ -25,3 +25,10 @@ One limitation is that players can enter any combination of five letters, even i
 Another limitation is the small selection of possible hidden words. As the player continues restarting the game, they may eventually recognise words that have appeared previously. A larger word list would improve replayability.
 
 The game also does not save previous results or the player's fastest completion time. This means the timer is useful during gameplay but does not allow players to compare their results across different sessions.
+2. Reflection on the Development Process
+
+During the development of my Wordle game, I had to make decisions about the design, functionality and organisation of the project.
+
+I decided to use three separate files: index.html, style.css and script.js. This made it easier to understand what each part of the project was responsible for. HTML created the structure of the game, CSS controlled its appearance, and JavaScript handled the game logic and interactions.
+
+I also used GitHub to manage the project files and record changes through commits. This was useful because it provided a history of the development work and allowed me to keep track of changes to the code.
