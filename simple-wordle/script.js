@@ -34,3 +34,21 @@ function makeBoard() {
 }
 
 makeBoard();
+function startGame() {
+    answer = words[Math.floor(Math.random() * words.length)];
+    attempts = 0;
+    gameOver = false;
+
+    attemptsText.textContent = attempts;
+    message.textContent = "Enter your first guess.";
+    startButton.textContent = "New Game";
+
+    guessInput.value = "";
+    guessInput.disabled = false;
+    guessButton.disabled = false;
+
+    makeBoard();
+    guessInput.focus();
+}
+
+startButton.addEventListener("click", startGame);
