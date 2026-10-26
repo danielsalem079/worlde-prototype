@@ -101,9 +101,10 @@ WHEN the player submits a guess
 - `style.css` makes the word grid and adds the colours.
 - `script.js` chooses a word, checks guesses, updates the screen and runs the timer.
 
-The game uses simple functions and JavaScript DOM methods such as `getElementById`, `createElement`, `textContent` and `addEventListener`.
+The game uses simple functions and JavaScript DOM methods such as "getElmentById", "createdElement", and "textContent" 
 
-I used an iterative/prototyping approach: make a small working version, test it, then improve one feature at a time. **Add your own dates, commit examples and screenshots of these stages before submission.**
+I used an iterative/prototyping approach: make a small working version, test it, then improve one feature at a time. 
+
 
 ## Testing plan and evidence
 
