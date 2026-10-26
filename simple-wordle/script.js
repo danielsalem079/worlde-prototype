@@ -52,6 +52,7 @@ function startGame() {
 }
 
 startButton.addEventListener("click", startGame);
+guessButton.addEventListener("click", checkGuess);
 function endGame() {
     gameOver = true;
     guessInput.disabled = true;
