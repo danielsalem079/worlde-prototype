@@ -122,9 +122,22 @@ After you run each test yourself, fill in the **Actual result** and **Status** c
 
 ## Technical challenge
 
-Repeated letters are an important part of the game logic. For example, if a guess has two of the same letter but the answer only has one, both should not automatically become yellow. The code first checks green matches, and then checks whether each other letter is still available.
+Problem Encountered:
 
-**Add an actual problem you encountered while making or testing the game:** what went wrong, possible fixes, what you changed, and what happened after testing.
+Before uploading my Wordle project to GitHub, I had a problem getting the website to display correctly. When I opened the HTML file in my browser, the page appeared completely white, the text was not centred, and none of the CSS styling was working. This was frustrating because I had the files ready, but the game wasn't displaying how it was supposed to.
+
+Possible Solutions:
+I considered checking whether the CSS file was linked correctly in the HTML, whether the file names matched, and whether all the files were stored in the correct folder.
+
+Solution Implemented:
+I eventually realised that I had been opening the HTML file directly from the ZIP file instead of extracting the folder first. I extracted the ZIP file, made sure the HTML, CSS and JavaScript files were together, and reopened the HTML file in my browser.
+
+Testing and Outcome:
+After extracting the files, I tested the website again. This time, the CSS loaded properly, and the game displayed the correct layout, colours and buttons. I was then able to continue preparing my project for GitHub.
+
+What I Learned:
+This problem took more effort than I expected, but it helped me understand how HTML files connect to external CSS and JavaScript files. I also learned that checking file locations and testing locally before uploading a project to GitHub is important.
+
 
 ## Limitations and possible improvements
 
@@ -134,14 +147,3 @@ Repeated letters are an important part of the game logic. For example, if a gues
 
 A future version could use a bigger word list and a keyboard on screen.
 
-## Run the game
-
-Open `index.html` in a browser. All three code files need to stay in the same folder.
-
-For GitHub Pages, go to **Settings > Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, and save. The published link will appear on that page.
-
-**Live link:** Add this after publishing.
-
-## Learning and sources
-
-**Before submission:** Add the JavaScript lessons you actually completed (for example, on freeCodeCamp), what you learned and how it helped. Add genuine screenshots or certificates if available. Add Harvard-style references for any sources you used, including any external help.
