@@ -95,7 +95,7 @@ WHEN the player submits a guess
     END IF
 ```
 
-## How it was built
+## How the Worlde game  was built and what i included
 
 - `index.html` contains the headings, buttons, input box and game area.
 - `style.css` makes the word grid and adds the colours.
