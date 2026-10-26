@@ -1,3 +1,4 @@
+// These are the words the game can pick from.
 const words = ["APPLE", "BREAD", "CHAIR", "CLOUD", "DREAM", "FRUIT",
     "GRAPE", "HOUSE", "LEMON", "MONEY", "MOUSE", "PLANT",
     "RIVER", "STONE", "TABLE", "TRAIN", "WATER", "WORLD"];
@@ -16,6 +17,7 @@ let seconds = 0;
 let clock;
 let gameOver = true;
 
+// Make 6 rows with 5 empty boxes in each row.
 function makeBoard() {
     board.innerHTML = "";
 
@@ -33,28 +35,32 @@ function makeBoard() {
     }
 }
 
-makeBoard();
 function startGame() {
     answer = words[Math.floor(Math.random() * words.length)];
     attempts = 0;
+    seconds = 0;
     gameOver = false;
 
+    clearInterval(clock);
+    timer.textContent = seconds;
     attemptsText.textContent = attempts;
     message.textContent = "Enter your first guess.";
     startButton.textContent = "New Game";
-
     guessInput.value = "";
     guessInput.disabled = false;
     guessButton.disabled = false;
-
     makeBoard();
     guessInput.focus();
+
+    clock = setInterval(function () {
+        seconds++;
+        timer.textContent = seconds;
+    }, 1000);
 }
 
-startButton.addEventListener("click", startGame);
-guessButton.addEventListener("click", checkGuess);
 function endGame() {
     gameOver = true;
+    clearInterval(clock);
     guessInput.disabled = true;
     guessButton.disabled = true;
 }
@@ -71,32 +77,33 @@ function checkGuess() {
         return;
     }
 
-   const row = board.children[attempts];
-const remainingLetters = answer.split("");
-const colours = ["absent", "absent", "absent", "absent", "absent"];
+    const row = board.children[attempts];
+    const remainingLetters = answer.split("");
+    const colours = ["absent", "absent", "absent", "absent", "absent"];
 
-for (let i = 0; i < 5; i++) {
-    if (guess[i] === answer[i]) {
-        colours[i] = "correct";
-        remainingLetters[i] = "";
-    }
-}
-
-for (let i = 0; i < 5; i++) {
-    if (colours[i] !== "correct") {
-        const position = remainingLetters.indexOf(guess[i]);
-
-        if (position !== -1) {
-            colours[i] = "present";
-            remainingLetters[position] = "";
+    // Check letters in the correct place first.
+    for (let i = 0; i < 5; i++) {
+        if (guess[i] === answer[i]) {
+            colours[i] = "correct";
+            remainingLetters[i] = "";
         }
     }
-}
 
-for (let i = 0; i < 5; i++) {
-    row.children[i].textContent = guess[i];
-    row.children[i].classList.add(colours[i]);
-}
+    // Then check letters that are in the wrong place.
+    for (let i = 0; i < 5; i++) {
+        if (colours[i] !== "correct") {
+            const position = remainingLetters.indexOf(guess[i]);
+            if (position !== -1) {
+                colours[i] = "present";
+                remainingLetters[position] = "";
+            }
+        }
+    }
+
+    for (let i = 0; i < 5; i++) {
+        row.children[i].textContent = guess[i];
+        row.children[i].classList.add(colours[i]);
+    }
 
     attempts++;
     attemptsText.textContent = attempts;
@@ -113,3 +120,14 @@ for (let i = 0; i < 5; i++) {
         guessInput.focus();
     }
 }
+
+startButton.addEventListener("click", startGame);
+guessButton.addEventListener("click", checkGuess);
+
+guessInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        checkGuess();
+    }
+});
+
+makeBoard();
