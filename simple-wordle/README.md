@@ -69,9 +69,6 @@ flowchart TD
     J --> B
 ```
 
-Example screenshot of the game:
-
-![Wordle game screenshot](preview.png)
 
 ## Pseudocode
 
